@@ -4,9 +4,11 @@ import 'package:atro/provider/search_provider.dart';
 import 'package:atro/provider/sign_in_provider.dart';
 import 'package:atro/provider/statistics_provider.dart';
 import 'package:atro/provider/transactions_list_provider.dart';
-import 'package:atro/ui/account_login.dart';
+import 'package:atro/ui/statistics_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'ui/account_login.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,7 +39,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const AccountLoginPage(),
+      home: const  StatisticsPage(),
     );
   }
 }

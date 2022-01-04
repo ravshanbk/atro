@@ -31,46 +31,27 @@ class StatisticsPage extends StatelessWidget {
       width: gpsW(750.0),
       child: SfCartesianChart(
         borderColor: Colors.grey,
-       
         primaryXAxis: CategoryAxis(
-          majorGridLines:const  MajorGridLines(width: 0.0),
-          majorTickLines:const  MajorTickLines(size: 0.0),
-          
-          minorTickLines:const  MinorTickLines(width: 0.0,size: 0.0),
-          labelAlignment: LabelAlignment.center,
-          labelIntersectAction: AxisLabelIntersectAction.none,
-          rangePadding: ChartRangePadding.none,
-          axisLine:const AxisLine(color: Colors.transparent,width: 0.0),
-          
-          arrangeByIndex: false,
-          isVisible: true
-        ),
-
+            majorGridLines: const MajorGridLines(width: 0.0),
+            majorTickLines: const MajorTickLines(size: 0.0),
+            minorTickLines: const MinorTickLines(width: 0.0, size: 0.0),
+            labelAlignment: LabelAlignment.center,
+            labelIntersectAction: AxisLabelIntersectAction.none,
+            rangePadding: ChartRangePadding.none,
+            axisLine: const AxisLine(color: Colors.transparent, width: 0.0),
+            arrangeByIndex: false,
+            isVisible: true),
         primaryYAxis: CategoryAxis(
-          arrangeByIndex: true,
-          axisLine:const  AxisLine(color: Colors.white),
-          
-          labelPlacement: LabelPlacement.betweenTicks,
-          
-          isVisible: true
-        ),
+            arrangeByIndex: false,
+            axisLine: const AxisLine(color: Colors.white),
+            labelPlacement: LabelPlacement.onTicks,
+            isVisible: true),
         title: ChartTitle(
             text: context.watch<StatisticsProviderMy>().chartTitles[i],
             alignment: ChartAlignment.near),
         tooltipBehavior: TooltipBehavior(
           builder: (dynamic data, dynamic point, dynamic series, int pointIndex,
               int seriesIndex) {
-            debugPrint("Series: " + series.toString());
-            debugPrint("pointIndex: " + pointIndex.toString());
-            debugPrint("data: " + data.sales.toString());
-            debugPrint("point: " + point.toString());
-            debugPrint("EXample " +
-                Provider.of<StatisticsProviderMy>(context, listen: false)
-                    .selectedData[i][pointIndex]
-                    .sales
-                    .toString());
-
-            debugPrint("seriesINdex: " + seriesIndex.toString());
             return Container(
               padding:
                   const EdgeInsets.symmetric(horizontal: 5.0, vertical: 2.0),
@@ -79,12 +60,13 @@ class StatisticsPage extends StatelessWidget {
                   color: context
                       .read<StatisticsProviderMy>()
                       .chartIndicatorColors[i]),
-              child: Text("\$"+
-                Provider.of<StatisticsProviderMy>(context, listen: false)
-                    .selectedData[i][pointIndex]
-                    .sales
-                    .toString(),
-                    style:const TextStyle(color: Colors.white),
+              child: Text(
+                "\$" +
+                    Provider.of<StatisticsProviderMy>(context, listen: false)
+                        .selectedData[i][pointIndex]
+                        .sales
+                        .toString(),
+                style: const TextStyle(color: Colors.white),
               ),
             );
           },

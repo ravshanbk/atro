@@ -62,6 +62,8 @@ class _BottomNavigationBarMyState extends State<BottomNavigationBarMy> {
           BottomNavigationBarItem(
             label: "",
             icon: IconButton(
+                constraints:
+                    const BoxConstraints(maxHeight: 50.0, maxWidth: 50.0),
                 onPressed: () {
                   Navigator.push(
                       context,
@@ -90,6 +92,8 @@ class _BottomNavigationBarMyState extends State<BottomNavigationBarMy> {
           BottomNavigationBarItem(
             label: "",
             icon: IconButton(
+                constraints:
+                    const BoxConstraints(maxHeight: 50.0, maxWidth: 50.0),
                 onPressed: () {
                   context
                       .read<BottomNavigationBarProvider>()
