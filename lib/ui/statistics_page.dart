@@ -32,19 +32,20 @@ class StatisticsPage extends StatelessWidget {
       child: SfCartesianChart(
         borderColor: Colors.grey,
         primaryXAxis: CategoryAxis(
-            majorGridLines: const MajorGridLines(width: 0.0),
-            majorTickLines: const MajorTickLines(size: 0.0),
-            minorTickLines: const MinorTickLines(width: 0.0, size: 0.0),
-            labelAlignment: LabelAlignment.center,
-            labelIntersectAction: AxisLabelIntersectAction.none,
-            rangePadding: ChartRangePadding.none,
-            axisLine: const AxisLine(color: Colors.transparent, width: 0.0),
-            arrangeByIndex: false,
-            isVisible: true),
+          edgeLabelPlacement: EdgeLabelPlacement.shift,
+          majorGridLines:
+              const MajorGridLines(width: 2.0, color: Colors.transparent),
+          majorTickLines:
+              const MajorTickLines(size: 2.0, color: Colors.transparent),
+          axisLine: const AxisLine(color: Colors.white, width: 2.0),
+          isVisible: true,
+        ),
         primaryYAxis: CategoryAxis(
-            arrangeByIndex: false,
+            majorGridLines:
+                MajorGridLines(color: Colors.grey.withOpacity(.3), width: .1),
+            majorTickLines:
+                const MajorTickLines(color: Colors.transparent, size: 2.0),
             axisLine: const AxisLine(color: Colors.white),
-            labelPlacement: LabelPlacement.onTicks,
             isVisible: true),
         title: ChartTitle(
             text: context.watch<StatisticsProviderMy>().chartTitles[i],
